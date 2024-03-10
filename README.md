@@ -17,12 +17,12 @@ To enable mobile robots to navigate in outdoor environments, robust localization
 
 ### Shadow removal results
 **Tokyo 24/7**
-<p align="center">
+<p align="left">
   <img width=550" src="teaser/PR-ShadowNet_1.png">
 </p>
 
 **GTA shadow removal**
-<p align="center">
+<p align="left">
   <img width=550" src="teaser/PR-ShadowNet_2.png">
 </p>
 
