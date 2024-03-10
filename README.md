@@ -1,3 +1,29 @@
+# PR-ShadowNet (ICCAS'2023)
+
+This is an implementation of the following paper.
+PR-ShadowNet is a DC-ShadowNet-based shadow removal model. Ours showed excellent performance in shadow removal in complex environments for place recognition in urban environments.  
+
+> [PR-ShadowNet: Shadow Removal for Long-Term Place Recognition.](https://ieeexplore.ieee.org/abstract/document/10316775?casa_token=NSahX8fBSjkAAAAA:2WPO7YB_IA4VJbGKRudbZuydId-X8gjnF31BuZGep52rfmLumkLv-AmJ8fbPjEDqWdM35S91_30)
+> International Conference on Control, Automation, Systems (ICCAS'2023)
+
+[[paper]](https://ieeexplore.ieee.org/abstract/document/10316775?casa_token=NSahX8fBSjkAAAAA:2WPO7YB_IA4VJbGKRudbZuydId-X8gjnF31BuZGep52rfmLumkLv-AmJ8fbPjEDqWdM35S91_30)
+
+### Abstract
+To enable mobile robots to navigate in outdoor environments, robust localization and place recognition techniques that can handle the changing environments over time are crucial. Among the factors that vary with time, shadows pose a challenge to accurate place recognition for robots. In this study, we propose a method to remove shadows from images, aiming to improve the accuracy of place recognition during long-term robot navigation. Proposed method leverages the low-level feature map of VGG16, which contains structural information about the scene, as part of the generator loss. This allows proposed approach to operate robustly even in complex urban environments. Furthermore, proposed method can be applied in real-world scenarios where obtaining labeled non-shadow images is difficult, as it is trained on unpaired images. Experimental results on the GTA dataset, a virtual reality dataset, demonstrate improved root mean square error (RMSE) compared to the existing DC-ShadowNet. Additionally, proposed method effectively removes shadows in the Tokyo 24/7 dataset, which consists of unpaired real-world images.  
+
+### Datasets
+1. [Tokyo 24/7](http://www.ok.ctrl.titech.ac.jp/~torii/project/247/)
+2. [GTAV dataset](https://github.com/acecreamu/angularGAN)
+
+### Shadow removal results
+<p align="center">
+  <img width=550" src="teaser/PR-ShadowNet_1.PNG">
+  <img width=550" src="teaser/PR-ShadowNet_2.PNG">
+</p>
+
+
+----
+
 # DC-ShadowNet (ICCV'2021)
 
 ## Introduction
