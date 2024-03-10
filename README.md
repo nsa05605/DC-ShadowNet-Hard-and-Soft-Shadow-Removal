@@ -13,12 +13,17 @@ To enable mobile robots to navigate in outdoor environments, robust localization
 
 ### Datasets
 1. [Tokyo 24/7](http://www.ok.ctrl.titech.ac.jp/~torii/project/247/)
-2. [GTAV dataset](https://github.com/acecreamu/angularGAN)
+2. [GTAV shadow removal](https://github.com/acecreamu/angularGAN)
 
 ### Shadow removal results
+**Tokyo 24/7**
 <p align="center">
-  <img width=550" src="teaser/PR-ShadowNet_1.PNG">
-  <img width=550" src="teaser/PR-ShadowNet_2.PNG">
+  <img width=550" src="teaser/PR-ShadowNet_1.png">
+</p>
+
+**GTA shadow removal**
+<p align="center">
+  <img width=550" src="teaser/PR-ShadowNet_2.png">
 </p>
 
 
