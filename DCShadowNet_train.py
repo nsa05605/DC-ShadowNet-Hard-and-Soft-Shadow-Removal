@@ -237,10 +237,18 @@ class DCShadowNet(object) :
             if self.use_pecp_loss:
                 selfpecpvgg_loss = PerceptualLossVgg16(None,
                                             [0],
-                                            weights=[1.0], 
-                                            indices=[22])                ##yy: Checkpoint/Model for pecp_vgg loss, ImageNet, layer 22
+                                            weights=[0.25, 1.0],
+                                            indices=[15, 22])                ##yy: Checkpoint/Model for pecp_vgg loss, ImageNet, layer 22
+                                                                         ## 여기에서 incides를 3, 8, 15, 22 layer로 바꿔주기
                 loss_selfpecp = selfpecpvgg_loss(fake_A2B, real_A)
-            
+            # if self.use_pecp_loss:
+            #     selfpecpvgg_loss = PerceptualLossVgg16(None,
+            #                                 [0],
+            #                                 weights=[1.0],
+            #                                 indices=[22])                ##yy: Checkpoint/Model for pecp_vgg loss, ImageNet, layer 22
+            #                                                              ## 여기에서 incides를 3, 8, 15, 22 layer로 바꿔주기
+            #     loss_selfpecp = selfpecpvgg_loss(fake_A2B, real_A)
+
             if self.use_smooth_loss:
                 gen_mask    = softmask_generator(real_A, fake_A2B)
                 loss_smooth = smooth_loss_masked(fake_A2B, gen_mask)
@@ -256,6 +264,8 @@ class DCShadowNet(object) :
             G_loss_B = self.adv_weight * (G_ad_loss_GB + G_ad_Dom_loss_GB + G_ad_loss_LB + G_ad_Dom_loss_LB) + self.cycle_weight * G_recon_loss_B + self.identity_weight * G_identity_loss_B + self.dom_weight * G_dom_loss_B
 
             Generator_loss = G_loss_A + G_loss_B
+            print("G_loss_A : {}".format(G_loss_A))
+            print("G_loss_B : {}".format(G_loss_B))
 
             if self.use_ch_loss == True:
                 Generator_loss = Generator_loss + loss_ch
@@ -372,7 +382,7 @@ class DCShadowNet(object) :
                     params['disGB'] = self.disGB.state_dict()
                     params['disLA'] = self.disLA.state_dict()
                     params['disLB'] = self.disLB.state_dict()
-                    torch.save(params, os.path.join(self.result_dir, self.dataset + '_params_latest.pt'))
+                    torch.save(params, os.path.join(self.result_dir, self.dataset + '_params_%07d.pt' % step))
 
     def save(self, dir, step):
         params = {}
